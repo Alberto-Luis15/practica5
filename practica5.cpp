@@ -13,6 +13,7 @@ struct NoDo{
 };
 NoDo x1(3), x2(7), x3(9), x4(12), x5(15);
 void adherir(struct NoDo*&, int);
+void mostrar(struct NoDo*& lista);
 
 int main(int argc, char** argv){
 	int option, add;
@@ -32,12 +33,12 @@ int main(int argc, char** argv){
 			break;
 		case 2:
 			cout<<"Mostrando datos: "<<endl;
-		
+			mostrar(lista);
 			break;
 		case 3:
 			cout<<"Salir del programa: "<<endl;
 		default: 
-			cout<<".:Bye:."<<endl;
+			cout<<".:Bye:. presiona una tecla"<<endl;
 			break;
 			
 	}
@@ -59,5 +60,13 @@ void adherir(NoDo*& lista, int add)
 			auxiliar=auxiliar->puntero;
 		}
 		auxiliar->puntero=nuevo;
+	}
+} 
+void mostrar(NoDo*& lista)
+{
+	NoDo *auxiliar=lista;
+	while(auxiliar!=NULL){
+		cout<<auxiliar->dato<<endl;
+		auxiliar=auxiliar->puntero;
 	}
 } 
